@@ -71,10 +71,6 @@ body > .modal > .central-height {
     justify-content: center;
 }
 
-.error {
-    background:
-}
-
 body > .modal > .central-height > .central-width {
     display: flex;
     flex-direction: row;
