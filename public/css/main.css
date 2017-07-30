@@ -12,7 +12,6 @@ html, body {
 body {
     background: url(../images/portal-background.jpg) fixed;
     background-size: cover;
-    color: #636b6f;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
 }
@@ -57,7 +56,7 @@ body > .modal > .background {
     width: 100%;
     height: 100%;
     z-index: 101;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, .4);
 }
 
 body > .modal > .central-height {
@@ -89,8 +88,7 @@ body > .modal > .central-height > .central-width > fieldset {
 }
 
 body > .modal > .central-height > .central-width > fieldset > legend {
-    min-width: 100%;
-    width: auto;
+    width: 100%;
     height: 40px;
     line-height: 40px;
     padding: 0 30px;
@@ -98,18 +96,70 @@ body > .modal > .central-height > .central-width > fieldset > legend {
     text-transform: uppercase;
     position: relative;
     top: 20px;
-    left: 0;
-    display: block;
     font-size: 20px;
 }
 
-body > .modal > .central-height > .central-width > fieldset > p {
-    padding: 40px 50px 40px 50px;
+body > .modal > .central-height > .central-width > fieldset > .content {
+    padding: 30px 30px 20px 30px;
 }
 
+body > .modal > .central-height > .central-width > fieldset > .buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    padding: 0 30px 15px 30px;
+}
+
+.btn {
+    line-height: 15px;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 10px 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.btn-success {
+    background: var(--green-1);
+    color: var(--white-1);
+}
+
+.btn-cancel {
+    background: var(--grey-1);
+}
 
 .title {
     font-size: 100px;
+    color: #fff9c4;
+}
+
+.blur {
+    filter: blur(2px);
+}
+
+nav {
+    display: block;
+    position: absolute;
+    z-index: 50;
+    width: 30vw;
+    background: rgba(0, 0, 0, .4);
+    padding: 20px 20px 20px 40px;
+}
+
+nav ul {
+
+}
+
+nav ul li {
+
+}
+
+
+.menu-root {
+
 }
 
 a, a:visited, a:active, a:link {

@@ -2,22 +2,26 @@
 
 <?php
 $title = 'PORTAL';
-$modal = [
+
+/*$modal = [
     'title' => 'Тестовый заголовок',
     'type' => 'notify',
     'content' => '<p>Какое-то сообщение и трататата твлдвап олп жлдофыв ывл</p>'
-]
+]*/
+
 ?>
 
 @section('style')
     @parent
+    <link rel="stylesheet" type="text/css" href="/css/variables.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/glyphicon.css">
 @endsection
 
 @section('body')
     <div class="background"></div>
-    <div class="content flex-center position-ref full-height">
+    @include('elements/main_menu')
+    <div class="content flex-center position-ref full-height @if(isset($modal)) blur @endif">
         @if (Route::has('login'))
             <div class="top-right links">
                 @auth

@@ -11,11 +11,12 @@
 |
 */
 
-Route::group(['as' => 'portal::', 'namespace' => 'portal'], function () {
-    Route::get('/', function () {
+Route::group(['as' => 'portal::', 'namespace' => 'Portal'], function () {
+    /*Route::get('/', function () {
         return view('index');
-    })->name('home');
+    })->name('home');*/
 
+    Route::get('/', 'PortalController@index')->name('home');
 });
 
 
