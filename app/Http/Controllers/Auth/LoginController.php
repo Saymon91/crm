@@ -34,7 +34,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->redirectTo = route('portal:home');
+        $this->redirectTo = route('portal::home');
         $this->middleware('guest')->except('logout');
     }
 }

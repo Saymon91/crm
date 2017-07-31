@@ -1,9 +1,15 @@
 :root {
   /*colors*/
 
+  --background-portal: url(../images/portal-background.jpg);
+
   --green-1: #4caf50;
 
   --white-1: #ffffff;
 
   --grey-1: #b0bec5;
+
+  --yellow-1: #fff9c4;
+
+  --orange-1: #d84315;
 }

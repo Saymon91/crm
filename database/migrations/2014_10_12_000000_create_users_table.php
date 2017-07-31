@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('username', 25);
             $table->string('email');
             $table->unsignedBigInteger('phone');
-            $table->string('password', 25);
+            $table->string('password', 100);
             $table->dateTime('last_visit');
             $table->rememberToken();
             $table->timestamps();

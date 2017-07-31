@@ -10,7 +10,7 @@ html, body {
 }
 
 body {
-    background: url(../images/portal-background.jpg) fixed;
+    background: var(--background-portal) fixed;
     background-size: cover;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
@@ -24,94 +24,25 @@ body > .background {
     height: 100vh;
     background: inherit;
     background-size: inherit;
-    filter: blur(2px);
+    /*filter: blur(2px);*/
     z-index: 0;
     content: " ";
 }
 
-body > .content {
+body > .page {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
-}
-
-body > .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 100;
-    display: block;
-    content: " ";
-}
-
-body > .modal > .background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 101;
-    background: rgba(0, 0, 0, .4);
-}
-
-body > .modal > .central-height {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-body > .modal > .central-height > .central-width {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-body > .modal > .central-height > .central-width > fieldset {
-    z-index: 102;
-    background: #ffffff;
-    border: none;
-    border-radius: 4px;
-    position: relative;
-    display: block;
-    height: auto;
-    width: auto;
-}
-
-body > .modal > .central-height > .central-width > fieldset > legend {
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    padding: 0 30px;
-    background: rgba(0, 0, 0, .1);
-    text-transform: uppercase;
-    position: relative;
-    top: 20px;
-    font-size: 20px;
-}
-
-body > .modal > .central-height > .central-width > fieldset > .content {
-    padding: 30px 30px 20px 30px;
-}
-
-body > .modal > .central-height > .central-width > fieldset > .buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    padding: 0 30px 15px 30px;
+    display: grid;
+    grid-template-rows: 100px 40px auto;
+    grid-template-columns: 15vw auto 12vw;
 }
 
 .btn {
+    display: block;
     line-height: 15px;
     text-transform: uppercase;
     font-size: 15px;
@@ -120,6 +51,7 @@ body > .modal > .central-height > .central-width > fieldset > .buttons {
     border: none;
     cursor: pointer;
     border-radius: 2px;
+    text-align: center;
 }
 
 .btn-success {
@@ -131,38 +63,143 @@ body > .modal > .central-height > .central-width > fieldset > .buttons {
     background: var(--grey-1);
 }
 
-.title {
-    font-size: 100px;
-    color: #fff9c4;
-}
-
 .blur {
     filter: blur(2px);
-}
-
-nav {
-    display: block;
-    position: absolute;
-    z-index: 50;
-    width: 30vw;
-    background: rgba(0, 0, 0, .4);
-    padding: 20px 20px 20px 40px;
-}
-
-nav ul {
-
-}
-
-nav ul li {
-
-}
-
-
-.menu-root {
-
 }
 
 a, a:visited, a:active, a:link {
     text-decoration: none;
     color: inherit;
 }
+
+header {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+nav.main-menu {
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+header .title {
+    width: 20vw;
+    font-size: 5vw;
+    color: #fff9c4;
+    text-align: center;
+}
+
+div.content {
+    height: 100%;
+    border-left: 2px solid var(--orange-1);
+    border-right: 2px solid var(--orange-1);
+    /*background: rgba(255, 255, 255, .8);*/
+    background: var(--white-1);
+    padding: 30px 20px;
+}
+
+main {
+    grid-row: 3;
+    grid-column: 2;
+    overflow: auto;
+    background: var(--white-1);
+}
+
+
+form[name="login"] {
+    display: grid;
+    min-width: 200px;
+    width: 17vw;
+    height: 100%;
+    grid-template-rows: repeat(2, 1fr 2px) 1fr;
+    grid-template-columns: 1fr 2px 1fr;
+    padding: 0 20px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 2px solid #d84315;
+}
+
+form[name="login"]:before {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--background-portal) fixed;
+    background-size: cover;
+    filter: blur(4px);
+    content: " ";
+    position: absolute;
+}
+
+form[name="login"]:after {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    content: " ";
+    position: absolute;
+}
+
+form[name="login"] input {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+    z-index: 1;
+}
+
+form[name="login"] input[name="login"] {
+    grid-row: 1;
+}
+
+form[name="login"] input[name="password"] {
+    grid-row: 3;
+}
+
+form[name="login"] input[type="text"],form[name="login"] input[type="password"] {
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--grey-1);
+    color: var(--white-1);
+    font-size: 17px;
+}
+
+form[name="login"] input[type="submit"] {
+    grid-row: 5;
+    grid-column: 1;
+}
+
+form[name="login"] a.btn {
+    grid-row: 5;
+    grid-column: 3;
+    z-index: 1;
+}
+
+form[name='register'] {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: 1fr;
+}
+
+form[name='register'] input[type="text"],form[name='register'] input[type="password"],form[name='register'] input[type="email"] {
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--grey-1);
+    text-align: center;
+    line-height: 20px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    display: block;
+    position: relative;
+}
+
+form[name='register'] input:required {
+    border-left: 4px solid var(--orange-1);
+}
+

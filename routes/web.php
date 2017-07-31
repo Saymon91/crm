@@ -17,6 +17,22 @@ Route::group(['as' => 'portal::', 'namespace' => 'Portal'], function () {
     })->name('home');*/
 
     Route::get('/', 'PortalController@index')->name('home');
+
+    /*Route::post('/login', 'SecurityController@login')->name('login');
+    Route::get('/logout', 'SecurityController@logout')->name('logout');*/
 });
 
+Route::group(['as' => 'backend::', 'namespace' => 'Backend'], function () {
+    /*Route::get('/', function () {
+        return view('index');
+    })->name('home');*/
+
+    Route::get('/profile', 'UsersController@profile')->name('profile');
+});
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 

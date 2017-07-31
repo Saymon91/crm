@@ -1,0 +1,72 @@
+body > .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    display: block;
+    content: " ";
+}
+
+body > .modal > .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+    background: rgba(0, 0, 0, .4);
+}
+
+body > .modal > .central-height {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+body > .modal > .central-height > .central-width {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+body > .modal > .central-height > .central-width > fieldset {
+    z-index: 102;
+    background: #ffffff;
+    border: none;
+    border-radius: 4px;
+    position: relative;
+    display: block;
+    height: auto;
+    width: auto;
+}
+
+body > .modal > .central-height > .central-width > fieldset > legend {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 30px;
+    background: rgba(0, 0, 0, .1);
+    text-transform: uppercase;
+    position: relative;
+    top: 20px;
+    font-size: 20px;
+}
+
+body > .modal > .central-height > .central-width > fieldset > .content {
+    padding: 30px 30px 20px 30px;
+}
+
+body > .modal > .central-height > .central-width > fieldset > .buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    padding: 0 30px 15px 30px;
+}
