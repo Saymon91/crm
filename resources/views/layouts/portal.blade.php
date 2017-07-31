@@ -11,29 +11,19 @@
 
     <!-- Fonts -->
     @section('style')
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/variables.css">
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-    <link rel="stylesheet" type="text/css" href="/css/glyphicon.css">
-    <link rel="stylesheet" type="text/css" href="/css/main_menu.css">
-    <link rel="stylesheet" type="text/css" href="css/part_menu.css">
-    <link rel="stylesheet" type="text/css" href="/css/modal.css">
+    <link rel="stylesheet" type="text/css" href="/css/portal.css">
     @show
     <!-- Styles -->
 
 </head>
 <body>
-{{--<div class="background"></div>--}}
-<div class="page flex-center position-ref full-height @if(isset($modal)) blur @endif">
-    @include('portal/header')
-    <nav class="main-menu">@include('elements/main_menu')</nav>
-    <nav class="part-menu">@include('elements/part_menu')</nav>
-    <main>
-        @section('content')
-        @show
-    </main>
-    <aside></aside>
-</div>
+<div class="nav"><nav class="main-menu @if(isset($modal)) blur @endif">@include('elements/portal_nav')</nav></div>
+<main class="@if(isset($modal)) blur @endif">
+    @section('content')
+    @show
+</main>
 
 @if (isset($modal))
     @include('elements/modal', ['modal'=>$modal])
