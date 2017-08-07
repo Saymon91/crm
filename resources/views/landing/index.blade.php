@@ -1,7 +1,7 @@
-@extends('layouts/portal')
+@extends('layouts/landing')
 
 <?php
-$title = 'PORTAL';
+$title = 'LANDING';
 
 /*$modal = [
     'title' => 'Тестовый заголовок',
@@ -48,4 +48,19 @@ $title = 'PORTAL';
             <p>Деловые люди всегда смогут найти компромисс интересов...</p>
         </div>
     </div>
+    @if (!Auth::user())
+    <div class="screen">
+        <a name="how_try"></a>
+        <div class="content">
+            <h1>Как попробовать?</h1>
+            <p>Воспользуйтесь полнофункциональной версией в течении 3 месяцев.
+                {!! Form::open(['route' => 'register', 'method' => 'post', 'name' => 'register']) !!}
+                {!! Form::text('username', null, ['placeholder' => 'USERNAME']) !!}
+                {!! Form::text('email', null, ['placeholder' => 'E-MAIL']) !!}
+                {!! Form::submit('REGISTER', ['class' => 'btn btn-success']) !!}
+                {!! Form::close() !!}
+            </p>
+        </div>
+    </div>
+    @endif
 @endsection

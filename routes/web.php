@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/landing', function () { return view('landing/index'); });
+
 Route::group(['as' => 'portal::', 'namespace' => 'Portal'], function () {
     /*Route::get('/', function () {
         return view('index');
