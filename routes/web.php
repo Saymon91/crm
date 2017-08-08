@@ -11,30 +11,41 @@
 |
 */
 
-Route::get('/landing', function () { return view('landing/index'); });
+use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Auth;
 
-Route::group(['as' => 'portal::', 'namespace' => 'Portal'], function () {
-    /*Route::get('/', function () {
-        return view('index');
-    })->name('home');*/
+Route::group(['middleware' => 'log'], function () {
+    Route::get('/landing', function () { return view('landing/index'); });
+    /*
+    Route::group(['as' => 'portal::', 'namespace' => 'Portal'], function () {
+        Route::get('/', function () {
+            return view('index');
+        })->name('home');
 
-    Route::get('/', 'PortalController@index')->name('home');
+        Route::get('/', 'PortalController@index')->name('home');
+        Route::get('/about', 'PortalController@about')->name('about');
+        Route::get('/contacts', 'PortalController@contacts')->name('contacts');
+    });
 
-    /*Route::post('/login', 'SecurityController@login')->name('login');
-    Route::get('/logout', 'SecurityController@logout')->name('logout');*/
+    Route::group(['as' => 'backend::', 'namespace' => 'Backend'], function () {
+
+    })->midleware('auth');
+
+    Route::group(['as' => 'admin::', 'namespace' => 'Admin'], function () {
+        Route::get('/profile/{user}', 'UsersController@profile')->name('user-profile');
+    })->midleware('role:admin');
+
+
+    Route::get('/login', 'SecurityController@login')->name('login');
+    Route::post('/login', 'SecurityController@auth')->name('auth');
+    Route::get('/logout', 'SecurityController@logout')->name('logout');
+
+    Route::get('/profile', 'UsersController@profile')->name('profile')->middleware('auth');
+    Route::patch('/profile', 'UsersController@profile')->name('profile')->middleware('auth');
+
+    //Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
+    */
 });
-
-Route::group(['as' => 'backend::', 'namespace' => 'Backend'], function () {
-    /*Route::get('/', function () {
-        return view('index');
-    })->name('home');*/
-
-    Route::get('/profile', 'UsersController@profile')->name('profile');
-});
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 

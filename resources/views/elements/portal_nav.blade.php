@@ -4,7 +4,8 @@
 
 @php
     $parts = [
-        ['name' => 'HOME', 'route' => 'portal', 'options' = []]
+        ['name' => 'HOME', 'route' => 'portal::index', 'options' => []],
+        ['name' => 'about', 'route' => 'portal::about', 'options' => []]
     ];
 @endphp
 

@@ -48,7 +48,7 @@ $title = 'LANDING';
             <p>Деловые люди всегда смогут найти компромисс интересов...</p>
         </div>
     </div>
-    @if (!Auth::user())
+    @if (Auth::user())
     <div class="screen">
         <a name="how_try"></a>
         <div class="content">
