@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class LogRecord extends Model
 {
     protected $table = 'logs';
+    public $timestamps = false;
 
     static function log(Request $request, ?Response $response = null) : Request
     {
@@ -16,6 +17,7 @@ class LogRecord extends Model
             $record = $request->logRecord;
             $record->response_content = gzencode($response->content(), 9);
             $record->response_status = $response->getStatusCode();
+            $record->response_time = new \DateTime();
             $record->save();
             return $request;
         }
@@ -27,8 +29,9 @@ class LogRecord extends Model
         $record->method = $request->method();
         $record->client_ip = $request->ip();
         //$record->client_agent = $request->userAgent;
+        $record->request_time = new \DateTime();
 
-        $record->save();
+        //$record->save();
         $request->logRecord = $record;
         return $request;
     }

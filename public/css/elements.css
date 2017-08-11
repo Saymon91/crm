@@ -1,0 +1,158 @@
+.btn {
+    display: block;
+    line-height: 15px;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 10px 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.btn-success {
+    background: var(--green-1);
+    color: var(--white-1);
+}
+
+.btn-cancel {
+    background: var(--grey-1);
+}
+
+.blur {
+    filter: blur(2px);
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr minmax(80%, auto) 1fr;
+}
+
+.header > .left, .header > .center, .header > .right {
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px 1px black;
+}
+
+.footer {
+    display: block;
+    width: 100%;
+}
+
+.form {
+    padding: 30px 20px;
+    display: grid;
+    grid-template-rows: 3fr auto 2fr;
+}
+
+.form > .header {
+    height: 100%;
+    background: rgba(0, 0, 0, .05);
+}
+
+.list,.list-header,.list-footer,.list-header-footer {
+    display: grid;
+}
+.list {
+    grid-template-rows: auto;
+}
+.list-header {
+    grid-template-rows: 1fr auto;
+}
+.list-footer {
+    grid-template-rows: auto 1fr;
+}
+.list-header-footer {
+    grid-template-rows: 1fr auto 1fr ;
+}
+
+.list-root {
+    padding: 0;
+    margin: 0;
+}
+
+.list-item {
+    list-style: none;
+    display: block;
+    padding: 10px 20px 10px 30px;
+    text-indent: 15px;
+}
+
+.list-item:hover {
+    background: rgba(0,0,0,.01);
+    box-shadow: 1px 1px 2px rgba(0,0,0,.4);
+}
+
+.form,.form-header,.form-footer,.form-header-footer {
+    display: grid;
+    padding: 30px 20px;
+}
+
+.form-field {
+    display: block;
+    position: relative;
+    padding: 10px 5px;
+}
+
+.input {
+    border: none;
+    background: none;
+    border-bottom: 1px solid #b9b9b9;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align:center;
+}
+
+.input[type='text'] {
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
+
+.label {
+    display: block;
+}
+
+.form-field .label {
+    color: #494949;
+    text-align: center;
+    text-transform: uppercase;
+    transition-duration: 0.3s;
+    transition-delay: 0.1s;
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    line-height: 2.2em;
+}
+
+.input:not(:placeholder-shown) + .label,.input:focus + .label {
+    height: 60% !important;
+    font-size: 0.6em !important;
+    line-height: 0.6em !important;
+}
+
+.input:placeholder-shown + .label {
+    height: 100%;
+    font-size: 1em;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.input:required:valid {
+    color: var(--green-1);
+    border-bottom: 1px solid var(--green-1);
+}
+
+.input:required:invalid {
+    color: var(--orange-1);
+    border-bottom: 1px solid var(--orange-1);
+}
+
