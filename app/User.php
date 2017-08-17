@@ -3,21 +3,50 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    const FIELDS = [
-        'username' => ['type' => 'text']
+    use Notifiable;
+
+    const TYPES = [
+        'text' => ['pattern' => '[A-Za-z0-9_-.]{4, 20}'],
     ];
-    const LABELS = [];
-    const FORMS = [
-        'register' => [
+    const FIELDS = [
+        'username' => ['type' => 'text', 'label' => 'username']
+    ];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        foreach (self::FIELDS as $item) {
+            $item['label'] = trans("labels.{$item['label']}");
+        }
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'id', 'username', 'email', 'phone', 'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    public static function getRegistrationForm()
+    {
+        return [
             'class' => 'form-register',
             'name' => 'register',
             'route' => 'portal::register',
             'method' => 'post',
-            'header' => ['centerContent' => 'Registration'],
+            'header' => ['centerContent' => trans('user.registration')],
             'fields' => [
                 [
                     'id' => 'username', 'label' => 'username',
@@ -40,28 +69,9 @@ class User extends Authenticatable
                     'attributes' => ['type' => 'text', 'name' => 'email', 'title' => 'email', 'pattern' => '[A-Za-z0-9._-]*@[A-Za-z0-9._-]*\.[A-Za-z0-9._-]*']
                 ]
             ]
-        ],
-        'login' => [],
-        'change_email' => [],
+        ];
+    }
 
-    ];
-
-    use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'id', 'username', 'email', 'phone', 'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];

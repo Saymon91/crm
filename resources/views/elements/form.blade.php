@@ -19,6 +19,7 @@
     @if ($header)
         @include('elements/header', $header)
     @endif
+
     @each('elements/form_field', $fields, 'field')
 
     @if ($footer)

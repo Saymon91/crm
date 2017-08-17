@@ -18,7 +18,7 @@ use App\User;
 Route::group(['middleware' => 'log'], function () {
 
     Route::get('/landing', function () { return view('landing/index'); });
-    Route::get('/test', function () { return view('layouts/test', ['form' => User::FORMS['register']]); });
+    Route::get('/test', function () { return view('layouts/test', ['form' => User::getRegistrationForm()]); });
     Route::post('/register', function () { return view('test'); })->name('portal::register');
     /*
     Route::group(['as' => 'portal::', 'namespace' => 'Portal'], function () {
